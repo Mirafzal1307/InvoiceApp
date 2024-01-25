@@ -1,40 +1,98 @@
-@import './base.css';
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+html,
+body {
+  font-family: 'League Spartan', sans-serif;
+}
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #635fc7 #ffffff;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  padding: 2px;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+*::-webkit-scrollbar-track {
+  background: #383672;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+*::-webkit-scrollbar-thumb {
+  background-color: #635fc7;
+  border-radius: 10px;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+:root {
+  /* Tailwind CSS Variables */
+
+  /* Brand Colors */
+  --brand-primary: #7c5dfa;
+  --brand-secondary: #9277ff;
+
+  /* Neutral Colors */
+  --neutral-dark-1: #1e2139;
+  --neutral-dark-2: #252945;
+  --neutral-dark-3: #373b53;
+  --neutral-light-1: #dfe3fa;
+  --neutral-light-2: #888eb0;
+  --neutral-light-3: #7e88c3;
+  --neutral-light-4: #0c0e16;
+
+  /* Accent Colors */
+  --accent-danger: #ec5757;
+
+  /* Background Colors */
+  --bg-light: #f8f8fb;
+  --bg-dark: #141625;
+}
+* {
+  white-space: nowrap;
+}
+.card-loading {
+  width: 100%; /* Set the width to match the card */
+  height: 120px; /* Set the height to match the card */
+  background-color: #dfdfdf; /* Set the background color as a light gray */
+  border-radius: 8px; /* Add border-radius for rounded corners */
+  animation: loading-animation 0.4s infinite alternate; /* Apply a simple animation */
+}
+.content-loading {
+  width: 100%; /* Set the width to match the card */
+  height: 768px; /* Set the height to match the card */
+  background-color: #dfdfdf; /* Set the background color as a light gray */
+  border-radius: 8px; /* Add border-radius for rounded corners */
+  animation: loading-animation 0.4s infinite alternate; /* Apply a simple animation */
+}
+.badge-loading {
+  width: 103px; /* Set the width to match the card */
+  padding: 21.5px 0;
+  background-color: #dfdfdf; /* Set the background color as a light gray */
+  border-radius: 8px; /* Add border-radius for rounded corners */
+  animation: loading-animation 0.4s infinite alternate; /* Apply a simple animation */
+}
+
+@keyframes loading-animation {
+  to {
+    opacity: 0.2; /* Adjust opacity for the alternating effect */
   }
+}
+.date {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* we will explain what these classes do next! */
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }

@@ -1,24 +1,19 @@
 <template>
-  <div class="app" :class="{ 'dark-theme': isDarkMode }">
-    <Sidebar />
+  <div class="flex bg-bgLight flex-1 dark:bg-bgDark flex-col w-screen h-screen sm:flex-row">
+    <component class="flex bg-bgLight flex-1 dark:bg-bgDark flex-col w-screen h-screen sm:flex-row" :is="getComponentsName($route.meta.title)">
+      <RouterView> </RouterView>
+    </component>
   </div>
 
-  <RouterView />
 </template>
 
 <script setup>
 import { RouterView } from 'vue-router'
-import Sidebar from './components/Sidebar.vue'
+
+const getComponentsName = (title) => {
+  const components = {
+    HomeView: 'HomeView'
+  }
+  return components[title] || ''
+};
 </script>
-
-<style>
-body {
-  background-color: #f8f8fb;
-  color: #000;
-}
-
-.dark-theme {
-  background-color: rgb(5, 208, 8);
-  color: #ffffff;
-}
-</style>

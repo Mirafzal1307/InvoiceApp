@@ -1,26 +1,45 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <!-- Button.vue -->
 <template>
-  <button class="btn">
+  <button class="btn flex items-center gap-2 bg-[#c4f0e2] px-4 py-2 rounded-md text-[#3cd1a1] text-sm" :class="getBtnClass"  :disabled="disabled">
     <slot></slot>
   </button>
 </template>
 
-<script setup></script>
+<script setup>
+import { computed } from 'vue'
 
-<style>
-/* Add your button styles here */
-.btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #c4f0e2;
-  border-radius: 10px;
-  padding: 10px 20px;
-  font-weight: 700;
-  font-size: 15px;
-  color: #33D69F;
-}
+const props = defineProps({
+  textColor: {
+    type: String
+  },
+  bgColor: {
+    type: String
+  },
+  text: {
+    type: String,
+    default: 'Button'
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  variant: {
+    type: String,
+    default: 'primary' // secondary
+  },
+  loading: {
+    type: String,
+    default: false
+  }
+})
 
-/* Add more button styles for different types if needed */
-</style>
+const getBtnClass = computed(() => {
+  if (props.variant === 'primary') {
+    return 'btn-primary'
+  } else if (props.variant === 'secondary') {
+    return 'btn-secondary'
+  }
+})
+</script>
+

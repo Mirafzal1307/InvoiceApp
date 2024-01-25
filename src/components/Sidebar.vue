@@ -6,7 +6,7 @@
     </span>
     <div class="sidebar-icons">
       <span>
-        <ThemeToggle />
+        <ThemeToggle :is-dark-mode="isDarkMode" @toggle="toggleDarkMode" />
       </span>
 
       <span><img class="avatar" src="../assets/img/Oval.svg" alt="img" /></span>
@@ -16,6 +16,10 @@
 
 <script setup>
 import ThemeToggle from './ThemeToggle.vue'
+import { useDarkMode } from '../theme/theme.js'
+
+const { isDarkMode, toggleDarkMode } = useDarkMode();
+
 </script>
 
 <style scoped>
