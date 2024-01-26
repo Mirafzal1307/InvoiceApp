@@ -1,7 +1,6 @@
 <!-- eslint-disable vue/valid-define-emits -->
 <!-- DarkModeToggle.vue -->
 <script setup>
-import { defineEmits } from 'vue'
 
 const { isDarkMode } = defineProps(['isDarkMode'])
 const emit = defineEmits()

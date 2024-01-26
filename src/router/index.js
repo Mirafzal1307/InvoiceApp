@@ -1,7 +1,4 @@
-import {
-  createRouter,
-  createWebHistory,
-} from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -11,10 +8,15 @@ const router = createRouter({
       name: 'HomeView',
       component: () => import('../views/HomeView.vue'),
       meta: {
-        title: 'HomeView',
+        title: 'HomeView'
       },
-    },
-  ],
-});
+      children: [
+        {
+          path: ':modal'
+        }
+      ]
+    }
+  ]
+})
 
-export default router;
+export default router

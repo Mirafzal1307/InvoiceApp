@@ -1,7 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <!-- Button.vue -->
 <template>
-  <button class="btn flex items-center gap-2 bg-[#c4f0e2] px-4 py-2 rounded-md text-[#3cd1a1] text-sm" :class="getBtnClass"  :disabled="disabled">
+  <button
+    class="flex items-center gap-2 px-4 py-2 rounded-full text-sm focus:scale-110 transition-transform"
+    :style="{ backgroundColor: bgColor, color: textColor }"
+    :disabled="disabled"
+  >
     <slot></slot>
   </button>
 </template>
@@ -24,22 +28,10 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  variant: {
-    type: String,
-    default: 'primary' // secondary
-  },
+
   loading: {
     type: String,
     default: false
   }
 })
-
-const getBtnClass = computed(() => {
-  if (props.variant === 'primary') {
-    return 'btn-primary'
-  } else if (props.variant === 'secondary') {
-    return 'btn-secondary'
-  }
-})
 </script>
-
